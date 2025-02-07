@@ -21,7 +21,7 @@ jobs:
 
     - name: Build with CMake and Make
       run: |
-        cmake ..
+        cmake .
         make
 
     - name: Run tests
