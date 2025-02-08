@@ -1035,6 +1035,7 @@ PycRef<ASTNode> BuildFromCode(PycRef<PycCode> code, PycModule* mod)
         case Pyc::JUMP_IF_FALSE_A:
         case Pyc::SET_FUNCTION_ATTRIBUTE_A:
         case Pyc::COPY_FREE_VARS_A:
+        case Pyc::TO_BOOL:
         case Pyc::COPY_A:
         case Pyc::MAKE_CELL_A:
         case Pyc::RETURN_GENERATOR:
