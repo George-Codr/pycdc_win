@@ -1,0 +1,35 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        choco install -y cmake
+        choco install -y make
+        choco install -y git
+        choco install -y visualstudio2019buildtools
+        choco install -y visualstudio2019-workload-vctools
+      shell: powershell
+
+    - name: Build with CMake and Make
+      run: |
+        cmake .
+        cmake --build . --config Release
+      shell: powershell
+
+    - name: Run tests
+      run: |
+        ctest -C Release
+      shell: powershell
